@@ -1,0 +1,131 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block page_panel %}
+<!-- Language -->
+<div class="row row_language mt-2 mb-1">
+  <div class="col-12 d-flex">
+
+    <!-- Language Dropdown -->
+    <div class="dropdown">
+      <!--Trigger-->
+      <button class="btn btn-light btn-sm dropdown-toggle ml-0" type="button" id="language_select_dropmenu"
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="">源语言&nbsp;
+          <span class="font-weight-bolder">英文</span>
+        </span>
+      </button>
+
+      <!--Menu-->
+      <div class="dropdown-menu" aria-labelledby="language_select_dropmenu">
+        <button class="dropdown-item" type="button">英文</button>
+        <button class="dropdown-item" type="button" disabled>中文（暂不支持）</button>
+      </div>
+    </div>
+    <!-- Language Dropdown -->
+
+    <!-- Recognize Button -->
+    {% block recognize_button %}
+    {% endblock %}
+    <!-- Recognize Button -->
+
+    <!-- Collapse Button -->
+    <button class="btn btn-sm btn-mdb-color ml-auto mr-0" type="button" id="entity_type_button" data-toggle="collapse"
+      data-target="#entity_type_collapse" aria-expanded="false" aria-controls="entity_type_collapse">
+      颜色示例
+    </button>
+    <!-- Collapse Button -->
+
+  </div>
+</div>
+<!-- Language -->
+
+<!-- Collapsible Example -->
+<div class="row collapse mx-0 mb-2 w-100" id="entity_type_collapse">
+  <div class="col-12 d-flex justify-content-end px-0">
+    {% block color_example %}
+    {% endblock %}
+  </div>
+</div>
+<!-- Collapsible Example -->
+
+<!-- Textarea -->
+<div class="row row_recognizer">
+  <div class="col-12 col-md-6 inner_textarea_container" id="source_textarea_container">
+    {% csrf_token %}
+    <!-- Textarea -->
+    <textarea name="source-texarea" class="form-control z-depth-1" id="source_texarea" rows="26" placeholder=""
+      maxlength="5000" autofocus></textarea>
+
+    <!-- Description -->
+    <span class="textarea_placeholder_text" id="source_texarea_placeholder_text">
+      在此输入以识别。<br>
+      <span class="edition_note">
+        <p>将Word（.docx）、PowerPoint（.pptx）或PDF（.pdf）文件拖到此处，或点击左下方的上传按钮来进行识别。</p>
+        <p>目前仅支持英文，后续将支持其他语言。</p>
+      </span>
+    </span>
+
+    <!-- Upload Document -->
+    <span class="textarea_upload_text">
+      <button type="button" class="btn btn-link p-0 m-0" id="upload_doc_button">
+        <div class="d-flex align-items-center">
+          <i class="fas fa-file-upload fa-2x mr-2"></i>
+          上传文档
+        </div>
+      </button>
+      <input type="file" style="display:none;" id="upload_doc_input" accept=".txt, .docx, .pptx, .pdf">
+    </span>
+
+    <!-- Statistic -->
+    <span class="textarea_statistic_text">
+      <span id="textarea_statistic_current">0</span>/5000
+    </span>
+
+  </div>
+  <div class="col-12 col-md-6 inner_textarea_container" id="target_textarea_container">
+    <!-- Textarea -->
+    <div class="card target_card">
+      <div class="card-body" id="target_texarea"></div>
+    </div>
+
+    <!-- Description-->
+    <span class="textarea_placeholder_text" id="target_texarea_placeholder_text">
+      此处显示识别结果。<br>
+      <span class="edition_note">
+        <p>点击右下方的导出按钮来获取文本（.txt）文件，内容为JSON格式的识别结果。</p>
+        <p>不同的实体、关系类别用颜色区分。</p>
+      </span>
+    </span>
+
+    <!-- Export Output-->
+    <span class="textarea_export_text">
+      <button type="button" class="btn btn-link p-0 m-0" id="export_output_button">
+        <div class="d-flex align-items-center">
+          导出结果
+          <i class="fas fa-file-export fa-2x ml-2"></i>
+        </div>
+      </button>
+    </span>
+  </div>
+</div>
+<!-- Textarea-->
+{% endblock %}
+
+{% block module_intro %}
+{% block entity_intro %}
+{% endblock %}
+{% block relation_intro %}
+{% endblock %}
+{% endblock %}
+
+{% block module_js %}
+<!-- PDF Reader in JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/1.10.100/pdf.min.js"></script>
+<!-- Docx Reader in JavaScript -->
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/docxtemplater/3.18.0/docxtemplater.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/pizzip@3.0.6/dist/pizzip.js"></script>
+<script type="text/javascript" src="{% static 'js/entity.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/relation.js' %}"></script>
+{% endblock %}

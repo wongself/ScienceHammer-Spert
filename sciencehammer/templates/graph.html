@@ -1,0 +1,47 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block page_panel %}
+<!-- Input -->
+<div class="row row_language mt-2 mb-1">
+  <div class="col-12">
+
+    <div class="md-form input-group mt-3 mb-3">
+
+      {% csrf_token %}
+      <input type="text" class="form-control graph-form-input" id="source_texarea" placeholder="输入您感兴趣的事物"
+        aria-label="输入您感兴趣的事物" aria-describedby="graph_query_button">
+      <div class="input-group-append">
+        <button class="btn btn-md blue-gradient query-button m-0 px-3" type="button" id="graph_query_button"
+          var="graph_query_button">搜索</button>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+<!-- Input -->
+
+<!-- Graph -->
+<div class="row row_graph mt-1 mb-1">
+  <div class="col-12">
+
+    <div id="graph_container"></div>
+
+  </div>
+</div>
+<!-- Graph -->
+{% endblock %}
+
+{% block module_intro %}
+<span>知识图谱是……</span>
+{% endblock %}
+
+{% block module_js %}
+<!-- Echarts -->
+<script type="text/javascript" src="{% static 'js/echarts/echarts.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/echarts/extension/dataTool.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/echarts/extension/bmap.js' %}"></script>
+<!-- Custom scripts -->
+<script type="text/javascript" src="{% static 'js/graph.js' %}"></script>
+{% endblock %}

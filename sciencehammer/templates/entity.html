@@ -1,0 +1,20 @@
+{% extends 'textarea.html' %}
+
+{% block recognize_button %}
+<button type="button" class="btn btn-sm btn-primary query-button d-flex align-items-center" id="entity_query_button" var="entity_query_button">
+  识别
+</button>
+{% endblock %}
+
+{% block color_example %}
+<div class="badge etype-color-task" data-toggle="tooltip" data-placement="top" title="Task">任务</div>
+<div class="badge etype-color-method" data-toggle="tooltip" data-placement="top" title="Method">方法</div>
+<div class="badge etype-color-metric" data-toggle="tooltip" data-placement="top" title="Metric">评价指标</div>
+<div class="badge etype-color-material" data-toggle="tooltip" data-placement="top" title="Material">资源</div>
+<div class="badge etype-color-generic" data-toggle="tooltip" data-placement="top" title="Generic">指代</div>
+<div class="badge etype-color-other mr-0" data-toggle="tooltip" data-placement="top" title="Other Scientific Term">其他</div>
+{% endblock %}
+
+{% block entity_intro %}
+<span>实体识别是……</span>
+{% endblock %}

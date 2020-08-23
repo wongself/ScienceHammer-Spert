@@ -1,0 +1,188 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Science Hammer - 科技文献挖掘</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <!-- Font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" />
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <!-- Material Design Bootstrap -->
+  <link rel="stylesheet" href="{% static 'css/mdb.min.css' %}">
+  <!-- Pragess Bar in Head of Page -->
+  <link rel="stylesheet" href="{% static 'css/nprogress.min.css' %}">
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+  <link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.ico' %}" />
+
+</head>
+
+<body>
+
+  <!--Main Navigation-->
+  <header>
+    <!-- Navbar -->
+    <nav class="mb-1 navbar fixed-top navbar-expand-lg navbar-light white">
+      <div class="container">
+        <!-- Brand -->
+        <a class="navbar-brand" href="{% url 'index' %}">
+          <img src="{% static 'img/svg/ner.svg' %}" height="30" class="d-inline-block align-top" alt="csner logo">
+          <strong>
+            Science Hammer<sup><i class="fas fa-hammer fa-flip-horizontal"></i></sup>
+          </strong>
+        </a>
+        <!-- Brand -->
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'index' %}">首页</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'graph' %}">知识图谱</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'entity' %}">实体识别</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'relation' %}">关系抽取</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-auto nav-flex-icons">
+            <li class="nav-item">
+              <a href="https://github.com/wongself/ScienceHammer" class="nav-link waves-effect waves-light" target="_blank">
+                <i class="fab fa-github fa-lg"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Navbar -->
+  </header>
+  <!--Main Navigation-->
+
+  <!--Main layout-->
+  <div class="page_container">
+
+    <!-- Panel layout -->
+    <div class="container page_panel">
+      {% block page_panel %}
+      {% endblock %}
+    </div>
+    <!-- Panel layout-->
+
+    <!--Introduction layout-->
+    <div class="container-fluid page_intro">
+
+      <section class="dark-grey-text">
+
+        <div class="row pr-lg-5">
+          <div class="col-md-7 mb-4">
+
+            <div class="view">
+              <img src="{% static 'img/svg/clumsy.svg' %}" class="img-fluid" alt="csner illustration">
+            </div>
+
+          </div>
+          <div class="col-md-5 d-flex align-items-center">
+            <div>
+
+              <h3 class="font-weight-bold mb-4">Science Hammer</h3>
+
+              <p>
+                Science Hammer（科技锤）是……
+              </p>
+              <p>
+                {% block module_intro %}
+                {% endblock %}
+              </p>
+
+              <button type="button" class="btn btn-orange btn-rounded mx-0"><a style="text-decoration:none;color:white;"
+                  href="mailto:wongself@foxmail.com">联系我们</a></button>
+
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+    <!--Introduction layout-->
+
+  </div>
+  <!--Main layout-->
+
+  <!-- Footer -->
+  <footer class="page-footer font-small">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3 text-muted">© 2020 Copyright
+      <a href="http://wiki.datahammer.net/" class="text-dark pl-1"> DataHammer.net</a>
+    </div>
+    <!-- Copyright -->
+
+  </footer>
+  <!-- Footer -->
+
+  <!-- Error Modal -->
+  <div class="modal fade" id="error_happened_modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered modal-sm modal-notify modal-danger" role="document">
+
+      <!--Content-->
+      <div class="modal-content text-center">
+        <!--Header-->
+        <div class="modal-header d-flex justify-content-center">
+          <p class="heading" id="modal_error_content">出现错误，请重试！</p>
+        </div>
+
+        <!--Body-->
+        <div class="modal-body">
+          <i class="fas fa-times fa-4x animated rotateIn"></i>
+        </div>
+
+        <!--Footer-->
+        <div class="modal-footer d-flex justify-content-center">
+          <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">
+            好的
+          </button>
+        </div>
+        <!--Footer-->
+      </div>
+      <!--Content-->
+
+    </div>
+  </div>
+  <!-- Error Modal -->
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
+  <!-- Pragess Bar in Head of Page -->
+  <script type="text/javascript" src="{% static 'js/nprogress.min.js' %}"></script>
+  <!-- Custom scripts -->
+  <script type="text/javascript" src="{% static 'js/style.js' %}"></script>
+  {% block module_js %}
+  {% endblock %}
+
+</body>
+
+</html>

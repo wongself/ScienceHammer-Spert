@@ -1,0 +1,22 @@
+{% extends 'textarea.html' %}
+
+{% block recognize_button %}
+<button type="button" class="btn btn-sm btn-dark-green query-button d-flex align-items-center" id="relation_query_button"
+  var="relation_query_button">
+  识别
+</button>
+{% endblock %}
+
+{% block color_example %}
+<div class="badge rtype-color-used" data-toggle="tooltip" data-placement="top" title="Used-for">用于</div>
+<div class="badge rtype-color-feature" data-toggle="tooltip" data-placement="top" title="Feature-of">特征</div>
+<div class="badge rtype-color-hyponym" data-toggle="tooltip" data-placement="top" title="Hyponym-of">下位</div>
+<div class="badge rtype-color-evaluate" data-toggle="tooltip" data-placement="top" title="Evaluate-for">评估</div>
+<div class="badge rtype-color-part" data-toggle="tooltip" data-placement="top" title="Part-of">部分</div>
+<div class="badge rtype-color-compare" data-toggle="tooltip" data-placement="top" title="Compare">比较</div>
+<div class="badge rtype-color-conjunction mr-0" data-toggle="tooltip" data-placement="top" title="Conjunction">并列</div>
+{% endblock %}
+
+{% block relation_intro %}
+<span>关系抽取是……</span>
+{% endblock %}
