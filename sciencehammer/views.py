@@ -42,8 +42,6 @@ def entity_query(request):
         # Query
         jpredictions = entity.entity_query(source)
 
-        print(jpredictions)
-
         return JsonResponse({'jpredictions': jpredictions})
     return render(request, './entity.html')
 
