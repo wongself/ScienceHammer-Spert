@@ -22,7 +22,7 @@
 
 ## 如何运行代码（仅限V100服务器用户）
 1. 在用户根目录输入`git clone git@github.com:wongself/ScienceHammer-Spert.git`将代码库原样下载到本地，~~或者登陆本项目的公用账号来查看文件夹`ScienceHammer`中的最新代码~~。
-2. 进入文件夹`ScienceHammer-Spert`，输入`cp -r /data/wsf/scihammer/data ./data`来拷贝网站运行所必需的模型数据文件吗，可能需要提前创建目标文件夹。
+2. 进入文件夹`ScienceHammer-Spert`，输入`cp -r /data/wsf/ScienceHammer-Spert/data ./data`来拷贝网站运行所必需的模型数据文件吗，可能需要提前创建目标文件夹。
 3. 位于文件夹`ScienceHammer-Spert`，输入以下命令来项目运行的必要文件`python manage.py migrate`。
 4. 位于文件夹`ScienceHammer-Spert`，输入以下命令来开启网站并进行测试`python manage.py runserver 0.0.0.0:kkkk`，其中`kkkk`指的是指定端口号码，`0.0.0.0:`仅限本地电脑访问V100服务器上运行的网站时需要。
 
